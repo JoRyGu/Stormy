@@ -28,7 +28,7 @@ extension CurrentWeather {
         case "wind": return UIImage(named: "wind")!
         case "fog": return UIImage(named: "fog")!
         case "cloudy": return UIImage(named: "cloudy")!
-        case "partly-cloudy-day": return UIImage(named: "partly-cloudy-day")!
+        case "partly-cloudy-day": return UIImage(named: "partly-cloudy")!
         case "partly-cloudy-night": return UIImage(named: "cloudy-night")!
         default: return UIImage(named: "default")!
         }

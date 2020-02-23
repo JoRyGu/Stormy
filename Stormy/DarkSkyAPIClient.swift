@@ -9,7 +9,7 @@
 import Foundation
 
 class DarkSkyAPIClient {
-    fileprivate let darkSkyApiKey = "fdc10c6fc1bd062139ca620313bc4f17"
+    fileprivate let darkSkyApiKey: String
     
     lazy var baseUrl: URL = {
         return URL(string: "https://api.darksky.net/forecast/\(self.darkSkyApiKey)/")!
@@ -20,6 +20,11 @@ class DarkSkyAPIClient {
     
     init(configuration: URLSessionConfiguration) {
         self.session = URLSession(configuration: configuration)
+        let path = Bundle.main.path(forResource: "keys", ofType: "plist")!
+        let keys = NSDictionary(contentsOfFile: path)!
+        let key = keys["DarkSkyApi"] as? String
+        
+        darkSkyApiKey = key!
     }
     
     convenience init() {
